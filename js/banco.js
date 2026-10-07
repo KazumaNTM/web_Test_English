@@ -1,83 +1,277 @@
-/* ============================================================
-   BANCO DE PREGUNTAS — SOLO DATOS (intercambiable)
-   Contrato: meta (id, titulo, subtitulo, descripcion, nota) ·
+/*============================================================
+   BANCO DE PREGUNTAS — HTML (BLOQUE 1)
+   Contrato: meta (id, titulo, subtitulo, descripcion, nota,
+             paginasPDF, totalPreguntas) ·
              secciones {LETRA:{nombre,color}} ·
-             preguntas [{s,q,o[],c,e}]  ·  c = índice correcto
+             preguntas [{s,q,o[],c,e,ref,d}]  ·  c = índice correcto
+   Fuente: HTMLCSSJSCombined.pdf (Nematrian, 2020)
    ============================================================ */
-const BANCO={
-meta:{
-  id:"verbos-regulares-irregulares-v1",
-  titulo:"Test de verbos",
-  subtitulo:"regulares e irregulares",
-  descripcion:"Preguntas de opción múltiple basadas estrictamente en la lista de verbos adjunta: paradigmas irregulares, patrones morfológicos, significados en español y pronunciación de los regulares. Sin conceptos repetidos entre preguntas.",
-  nota:"Nota de rigor: el documento original presenta particularidades (show y learn figuran en ambas listas; used clasificado como /t/; plan → planed sin duplicación) que este test respeta al pie de la letra."
+const BANCO_HTML = {
+meta: {
+  id: "html-fundamentos-v1",
+  titulo: "Test de HTML",
+  subtitulo: "fundamentos, elementos y atributos",
+  descripcion: "Preguntas de opción múltiple basadas estrictamente en el PDF HTMLCSSJSCombined.pdf (Nematrian, 2020). Cubre fundamentos, estructura del documento, elementos de contenido, tablas, formularios, multimedia, XHTML y recursos externos. Sin conceptos repetidos entre preguntas.",
+  nota: "Nota de rigor: el PDF clasifica <center> como no soportado en HTML 5 (en su lugar usar CSS) y describe <br> como elemento vacío que en XHTML debe cerrarse como <br />. Se respeta literalmente la terminología del documento original.",
+  paginasPDF: "pp. 1–11, 30–100, 101–162",
+  totalPreguntas: 40
 },
-secciones:{
-  A:{nombre:"Paradigmas irregulares",color:"#f5a524"},
-  B:{nombre:"Patrones morfológicos",color:"#10b981"},
-  C:{nombre:"Significado en español",color:"#38bdf8"},
-  D:{nombre:"Verbos regulares",color:"#f472b6"}
+secciones: {
+  A: { nombre: "Fundamentos y estructura del documento", color: "#f5a524" },
+  B: { nombre: "Elementos de contenido y texto",         color: "#10b981" },
+  C: { nombre: "Tablas, formularios y controles",        color: "#38bdf8" },
+  D: { nombre: "Multimedia, HTML5, XHTML y recursos",     color: "#f472b6" }
 },
-preguntas:[
-{s:"A",q:"¿Cuál de los siguientes verbos presenta exactamente la misma forma en infinitivo, pasado simple y participio pasado?",o:["Bend","Cast","Feel","Keep"],c:1,e:"La lista registra cast → cast → cast ('arrojar'); bend → bent, feel → felt y keep → kept cambian en pasado y participio."},
-{s:"A",q:"¿Qué verbo tiene un pasado simple idéntico al infinitivo, pero un participio pasado diferente?",o:["Bet","Cast","Beat","Cut"],c:2,e:"Beat → beat → beaten (golpear): solo el participio añade '-en'; bet, cast y cut repiten las tres formas."},
-{s:"A",q:"¿Qué verbo tiene un participio idéntico al infinitivo, pero un pasado simple distinto?",o:["Shut","Set","Put","Overcome"],c:3,e:"Overcome → overcame → overcome (vencer); en shut, set y put las tres formas coinciden, por lo que su pasado no difiere del infinitivo."},
-{s:"A",q:"Según la lista, la relación correcta entre 'lie' y 'lay' es:",o:["lie–laid–lain / lay–lay–laid","lie–lied–lain / lay–lay–laid","lie–lay–lain / lay–laid–laid","lie–lay–laid / lay–laid–lain"],c:2,e:"Lie (echarse) forma lay/lain; lay (poner) forma laid/laid; las demás combinaciones cruzan ambas conjugaciones."},
-{s:"A",q:"Las formas 'wound / wound' (pasado y participio) corresponden al infinitivo:",o:["Wring","Weave","Wet","Wind"],c:3,e:"Wind → wound → wound = 'enrollar'; wring → wrung, weave → wove/woven, wet invariable."},
-{s:"A",q:"El participio pasado de 'stride' es:",o:["Strided","Stridden","Struck","Strung"],c:1,e:"Stride → strode → stridden (dar zancadas); 'struck' pertenece a strike y la lista no registra 'strided' ni 'strung'."},
-{s:"A",q:"'Trodden' es participio pasado de:",o:["Thrust","Throw","Tread","Tell"],c:2,e:"Tread → trod → trodden (pisar, hollar); thrust es invariable, throw → thrown, tell → told."},
-{s:"A",q:"El pasado simple de 'forbid' es:",o:["Forbode","Forbid","Forbidden","Forbade"],c:3,e:"Forbid → forbade → forbidden (prohibir); 'forbidden' es el participio y 'forbid' el infinitivo."},
-{s:"A",q:"¿Qué verbo registra 'swelled' como pasado simple y 'swollen' como participio?",o:["Swell","Spring","Swing","Swim"],c:0,e:"Swell (hinchar) combina pasado de apariencia regular con participio irregular; spring → sprang/sprung, swing → swung, swim → swam/swum."},
-{s:"A",q:"'Mistaken' es participio pasado de:",o:["Make","Take","Mistake","Meet"],c:2,e:"Mistake → mistook → mistaken (equivocar); make → made, take → taken, meet → met."},
-{s:"A",q:"El participio de 'bear' (soportar, dar a luz) registrado en la lista es:",o:["Bore únicamente","Borne / Born","Beared","Borned"],c:1,e:"Bear → bore → borne/born: uno de los pocos verbos de la lista con participio doble."},
-{s:"A",q:"¿Qué verbo admite 'gotten' como variante de participio?",o:["Forget","Wet","Bet","Get"],c:3,e:"Get → got → got/gotten (obtener); forget → forgotten (único) y wet/bet son invariables."},
-{s:"A",q:"¿Qué verbo presenta doble pasado simple ('stank/stunk') con participio único?",o:["Stink","Sink","Spring","Shrink"],c:0,e:"Stink (apestar) → stank/stunk → stunk; sink, spring y shrink registran un solo pasado (sank, sprang, shrank)."},
-{s:"A",q:"¿Qué par de verbos significa lo mismo ('despertarse') y conjuga en paralelo?",o:["Arise / Rise","Awake / Wake","Come / Become","Go / Do"],c:1,e:"Awake → awoke → awoken y wake → woke → woken; arise (surgir) → arose/arisen ≠ rise → rose/risen; come → came ≠ become → became; go → went ≠ do → did."},
-{s:"A",q:"El pasado 'went' es un caso de supleción (no guarda relación formal con su infinitivo). Corresponde a:",o:["Want","Wind","Go","Weep"],c:2,e:"Go (goes) → went → gone (ir); want es regular (wanted /Id/), wind → wound, weep → wept."},
-{s:"A",q:"Las formas 'found / found' corresponden al verbo que significa:",o:["Sentir","Volar","Llenar","Encontrar"],c:3,e:"Find → found → found = 'encontrar'; feel → felt, fly → flew/flown, fill → filled (regular /d/)."},
-{s:"A",q:"'Left' es pasado y participio de:",o:["Let (permitir)","Leave (dejar)","Lead (conducir)","Lose (perder)"],c:1,e:"Leave → left → left; let es invariable, lead → led, lose → lost."},
-{s:"A",q:"'Held' corresponde a:",o:["Hold","Hear","Hurt","Keep"],c:0,e:"Hold (agarrar, celebrar) → held → held; hear → heard, hurt invariable, keep → kept."},
-{s:"A",q:"'Hidden' es participio de:",o:["Hold","Hit","Bid","Hide"],c:3,e:"Hide → hid → hidden (ocultar); hit y bid son invariables."},
-{s:"A",q:"'Ridden' es participio de:",o:["Rise","Write","Ride","Read"],c:2,e:"Ride → rode → ridden (montar); rise → risen, write → written, read invariable."},
-{s:"A",q:"El pasado simple de 'flee' es:",o:["Flew","Fled","Flyed","Flewn"],c:1,e:"Flee → fled → fled (huir); 'flew/flown' pertenecen a fly (volar): confusión clásica."},
-{s:"A",q:"El pasado y participio de 'shine' (brillar) es:",o:["Shown","Shined","Shook","Shone"],c:3,e:"Shine → shone → shone; 'shown' es participio de show y 'shook' es pasado de shake."},
-{s:"A",q:"¿Qué verbo NO registra formas de presente en su entrada de la lista irregular?",o:["Be","Do","Go","Have"],c:3,e:"La lista recoge 'Be / am, are, is', 'Do (Does)' y 'Go (Goes)'; 'have' aparece solo con had/had."},
-{s:"B",q:"¿Qué serie sigue el patrón vocálico i–a–u en las tres formas?",o:["Drink – Sing – Swim","Sleep – Keep – Feel","Bleed – Lead – Flee","Meet – Feed – Deal"],c:0,e:"Drank/drunk, sang/sung, swam/swum; las demás series conservan la vocal 'e' (slept, kept, felt, bled, led, fled, met, fed, dealt)."},
-{s:"B",q:"¿Qué serie sigue el patrón i→u, sin forma intermedia en 'a'?",o:["Sing – Sink – Shrink","Begin – Sit – Spit","Cling – Swing – Wring","Spring – Swim – Drink"],c:2,e:"Clung, swung, wrung; sing/sink/shrink, spring/swim/drink usan i–a–u, y begin → began, sit → sat, spit → spat."},
-{s:"B",q:"¿Cuál de estos verbos NO sigue el patrón ow–ew–own de 'throw–threw–thrown'?",o:["Grow","Know","Blow","Draw"],c:3,e:"Draw → drew → drawn (dibujar) usa la vocal 'aw'; grow, know y blow forman grew/grown, knew/known, blew/blown."},
-{s:"B",q:"¿Qué serie comparte e→o en el pasado y participio en -n?",o:["Steal – Tear – Find","Speak – Break – Weave","Mean – Deal – Dream","Learn – Spill – Spoil"],c:1,e:"Spoke/spoken, broke/broken, wove/woven; en la opción A, steal y tear cumplen pero find (found, sin -n) rompe el patrón."},
-{s:"B",q:"¿Cuál NO pertenece al grupo con pasado y participio en -ought/-aught?",o:["Deal","Seek","Think","Teach"],c:0,e:"Deal → dealt (tratar); sought, thought y taught sí pertenecen al grupo."},
-{s:"B",q:"¿Cuál de estos verbos NO forma pasado/participio en -pt?",o:["Sweep","Creep","Bleed","Leap"],c:2,e:"Bleed → bled (sangrar), sin '-t' final; swept, crept y leapt sí la llevan."},
-{s:"B",q:"¿Qué serie comparte terminación -ent en pasado y participio?",o:["Lend – Send – Spend","Hold – Hear – Hurt","Make – Take – Shake","Say – Pay – Tell"],c:0,e:"Lent, sent, spent (como bend → bent); held/heard/hurt, made/took/shook y said/paid/told siguen otros patrones."},
-{s:"B",q:"¿Qué par de verbos forma el pasado simple en '-aid'?",o:["Tell y Sell","Teach y Buy","Say y Pay","Make y Take"],c:2,e:"Said y paid; tell/sell → told/sold, teach/buy → taught/bought, make/take → made/took."},
-{s:"B",q:"¿Qué verbo replica exactamente el patrón de 'give–gave–given'?",o:["Forget","Forgive","Fall","Get"],c:1,e:"Forgive → forgave → forgiven (perdonar); forget → forgot/forgotten, fall → fell/fallen, get → got/got(ten)."},
-{s:"B",q:"¿Qué dos verbos figuran a la vez en la lista de irregulares y en la de regulares?",o:["Dream y Burn","Spill y Spoil","Sew y Sow","Show y Learn"],c:3,e:"'Show' aparece como irregular (showed–shown) y regular (showed /d/); 'learn' como irregular (learnt/learned) y regular (learned /d/); los demás solo figuran como irregulares."},
-{s:"C",q:"'Shore / shorn' son formas del verbo que significa:",o:["Brillar","Esquilar","Encoger","Soplar"],c:1,e:"Shear → shore → shorn = esquilar; brillar = shine, encogerse = shrink, soplar = blow."},
-{s:"C",q:"'Ground / ground' corresponden a:",o:["Moler","Hilar","Torcer","Pegar"],c:0,e:"Grind → ground → ground = moler; hilar = spin, torcer = wring, pegar = stick."},
-{s:"C",q:"El verbo 'wring' significa:",o:["Ganar","Escribir","Torcer","Coser"],c:2,e:"Wring → wrung → wrung = torcer; ganar = win, escribir = write, coser = sew."},
-{s:"C",q:"'Stride' significa:",o:["Dar zancadas","Saltar","Columpiarse","Resbalar"],c:0,e:"Stride → strode → stridden; saltar = spring, columpiarse = swing, resbalar = slide."},
-{s:"C",q:"'Wove / woven' corresponden al verbo que significa:",o:["Llevar puesto","Sembrar","Mojar","Tejer"],c:3,e:"Weave = tejer; llevar puesto = wear, sembrar = sow, mojar = wet."},
-{s:"C",q:"'Wept' es pasado de:",o:["Barrer","Llorar","Conservar","Dormir"],c:1,e:"Weep → wept → wept = llorar; barrer = sweep, conservar = keep, dormir = sleep."},
-{s:"C",q:"'Knelt' es pasado de:",o:["Arrodillarse","Agarrarse","Colgar","Atar"],c:0,e:"Kneel → knelt → knelt = arrodillarse; agarrarse = cling, colgar = hang, atar = bind."},
-{s:"C",q:"'Crept' es pasado de:",o:["Cavar","Acelerar","Arrastrarse","Soplar"],c:2,e:"Creep → crept → crept = arrastrarse; cavar = dig, acelerar = speed, soplar = blow."},
-{s:"C",q:"'Bound' es pasado de:",o:["Enviar","Hundir","Encontrar","Atar"],c:3,e:"Bind → bound → bound = atar, encuadernar; enviar = send, hundir = sink, encontrar = find."},
-{s:"C",q:"El verbo invariable 'bid' significa:",o:["Apostar","Pujar","Golpear","Disparar"],c:1,e:"Bid (bid/bid) = pujar; apostar = bet (también invariable), golpear = beat, disparar = shoot."},
-{s:"C",q:"'Underwent / undergone' corresponden a:",o:["Sufrir","Emprender","Entender","Retirarse"],c:0,e:"Undergo = sufrir; emprender = undertake (undertook/undertaken), entender = understand, retirarse = withdraw."},
-{s:"C",q:"'Withdrew / withdrawn' corresponden a:",o:["Vencer","Prohibir","Retirarse","Jurar"],c:2,e:"Withdraw = retirarse; vencer = overcome, prohibir = forbid, jurar = swear."},
-{s:"C",q:"El verbo invariable 'split' significa:",o:["Extender","Hender, partir, rajar","Hundir","Torcer"],c:1,e:"Split mantiene sus tres formas; extender = spread, hundir = sink, torcer = wring."},
-{s:"C",q:"'Stung' es pasado de:",o:["Apestar","Pegar","Morder","Picar"],c:3,e:"Sting → stung → stung = picar; apestar = stink, pegar = stick, morder = bite."},
-{s:"C",q:"El verbo invariable 'thrust' significa:",o:["Introducir","Permitir","Arrojar","Empujar"],c:0,e:"Thrust = introducir; permitir = let, arrojar/tirar = throw, empujar = push (regular /t/)."},
-{s:"C",q:"'Bred' es pasado de:",o:["Sangrar","Criar","Crecer","Sembrar"],c:1,e:"Breed → bred → bred = criar; sangrar = bleed, crecer = grow, sembrar = sow."},
-{s:"C",q:"El verbo invariable 'burst' significa:",o:["Radiar","Estropear","Reventar","Hinchar"],c:2,e:"Burst = reventar; radiar = broadcast, estropear = spoil, hinchar = swell."},
-{s:"D",q:"¿Cuál de estos verbos regulares se pronuncia /Id/ en pasado y participio?",o:["Wash","Need","Walk","Love"],c:1,e:"Need → needed /Id/ (necesitar); wash y walk pertenecen al grupo /t/ y love al /d/."},
-{s:"D",q:"¿Cuál pertenece al grupo de pronunciación /t/?",o:["Answer","Enjoy","Clean","Miss"],c:3,e:"Missed /t/ (extrañar); answered, enjoyed y cleaned figuran en el grupo /d/."},
-{s:"D",q:"¿Cuál de los siguientes NO figura en el grupo de pronunciación /d/?",o:["Arrive","Climb","Smoke","Follow"],c:2,e:"Smoked /t/ (fumar); arrived, climbed y followed son /d/."},
-{s:"D",q:"Según la lista, el pasado de 'use' se clasifica en el grupo:",o:["/Id/","/t/","/d/","/t/ y /d/"],c:1,e:"La lista inscribe 'Use – Used /t/ – Used /t/' dentro del grupo /t/, junto a like, smoke o practice."},
-{s:"D",q:"Los verbos del grupo /Id/ (accepted, counted, ended, needed…) comparten la característica de que su infinitivo:",o:["Termina en sonido /t/ o /d/","Duplica la consonante final","Termina en '-y'","Admite formas dobles"],c:0,e:"Accept, count, date, end, expect, intend, need, plant, visit, wait, want… terminan en sonido /t/ o /d/, lo que exige la sílaba adicional /Id/."},
-{s:"D",q:"Hurry–hurried, study–studied y try–tried comparten el cambio ortográfico:",o:["Duplicación de la consonante final","Adición del sufijo '-en'","Conversión de 'y' en 'i' antes de '-ed'","Supresión de la vocal final"],c:2,e:"'-y' → '-ied' (con pronunciación /d/); la duplicación corresponde a shop–shopped y stop–stopped."},
-{s:"D",q:"¿Qué par de verbos duplica la consonante final al formar el pasado?",o:["Shop y Stop","Clean y Walk","Open y Listen","Like y Use"],c:0,e:"Shopped /t/ y stopped /t/; los demás añaden '-ed' sin duplicación."},
-{s:"D",q:"Según la lista, la diferencia entre 'sew' y 'sow' es:",o:["Sew = sembrar; sow = coser","Sew = coser; sow = sembrar","Ambos significan coser","Ambos significan sembrar"],c:1,e:"Sew → sewed → sewed/sewn (coser); sow → sowed → sowed/sown (sembrar): ambos admiten participio doble."},
-{s:"D",q:"¿Qué dos verbos de la lista significan 'cerrar'?",o:["Wind y Wring","Sew y Sow","Let y Leave","Shut y Close"],c:3,e:"Shut (irregular e invariable) y close (regular, /d/); let = permitir, leave = dejar."},
-{s:"D",q:"El verbo regular 'dare' significa:",o:["Retar","Nombrar","Ordenar","Apurar"],c:0,e:"Dare → dared /d/ = retar; nombrar = name, ordenar = order, apurar/darse prisa = hurry."},
-{s:"D",q:"El verbo 'deliver' significa:",o:["Pertenecer","Resistir","Entregar","Cambiar"],c:2,e:"Deliver → delivered /d/ = entregar; pertenecer = belong, resistir = resist, cambiar = change."}
+preguntas: [
+  /* ============================================================
+     SECCIÓN A — Fundamentos y estructura del documento (12)
+     ============================================================ */
+  { s:"A", q:"¿Qué significa la sigla HTML?", 
+    o:["Hypertext Markup Language","High Technical Modern Language","Hyperlink Text Management Language","Home Tool Markup Language"], 
+    c:0, 
+    e:"El texto indica que HTML son las siglas de 'Hypertext Markup Language' (Lenguaje de Marcado de Hipertexto). Es uno de los tres componentes principales de las páginas web modernas, junto con CSS y JavaScript.", 
+    ref:"p. 3", d:1 },
+
+  { s:"A", q:"¿Cuál es la función principal de HTML en una página web?", 
+    o:["Definir el estilo visual de los elementos","Indicar al navegador qué elementos deben incluirse y en qué orden","Proporcionar interactividad y respuesta a eventos del usuario","Gestionar la base de datos del servidor"], 
+    c:1, 
+    e:"El texto especifica que 'HTML indica al navegador qué elementos deben incluirse en la página web (y en qué orden)'. CSS se encarga del estilo y JavaScript de la manipulación programática.", 
+    ref:"p. 3", d:1 },
+
+  { s:"A", q:"¿Qué es un 'lenguaje de marcado' según el texto?", 
+    o:["Un lenguaje de programación de alto nivel","Una forma de crear documentos digitales donde el documento contiene etiquetas que el software interpreta","Un sistema de bases de datos relacionales","Un protocolo de comunicación entre servidores"], 
+    c:1, 
+    e:"El texto define un lenguaje de marcado como 'una forma de crear e interpretar un documento digital en el que el documento contiene etiquetas (y sus atributos) que el software que renderiza el documento interpreta de una manera específica'.", 
+    ref:"p. 277", d:2 },
+
+  { s:"A", q:"¿Qué elemento HTML se utiliza para insertar un salto de línea (carriage return)?", 
+    o:["<lb>","<br>","<cr>","<newline>"], 
+    c:1, 
+    e:"El texto menciona que 'si quieres insertar un retorno de carro necesitas insertar una etiqueta <br>'. También aclara que en XHTML debe cerrarse como <br />.", 
+    ref:"p. 5", d:1 },
+
+  { s:"A", q:"¿Qué elemento HTML se utiliza para insertar una línea de ruptura temática (horizontal rule)?", 
+    o:["<line>","<hr>","<break>","<thematic>"], 
+    c:1, 
+    e:"El texto indica que 'una forma de dividir el texto es insertar una línea de ruptura temática o regla horizontal, es decir, una etiqueta <hr>, que coloca una línea a través de la ventana'.", 
+    ref:"p. 5", d:1 },
+
+  { s:"A", q:"¿Cuál es la forma correcta de escribir un comentario en HTML según el texto?", 
+    o:["// comentario","/* comentario */","<!-- comentario -->","# comentario"], 
+    c:2, 
+    e:"El texto indica que 'los comentarios en HTML toman la forma <!-- comentario --> e ignoran los saltos de línea dentro de las etiquetas de apertura y cierre del elemento de comentario'.", 
+    ref:"pp. 5–6", d:1 },
+
+  { s:"A", q:"¿Cuál es el código HTML correcto para mostrar el símbolo '&' (ampersand) en una página web?", 
+    o:["&amp;","&ampersand;","&and;","&am;"], 
+    c:0, 
+    e:"El texto incluye una tabla de caracteres especiales donde se muestra que el ampersand se representa como &amp;. Explica que 'cada carácter especial va precedido por un ampersand, seguido del nombre de marcado HTML para ese carácter y un punto y coma'.", 
+    ref:"p. 6", d:2 },
+
+  { s:"A", q:"¿Qué código HTML se utiliza para insertar un espacio que no se rompa (non-breaking space)?", 
+    o:["&space;","&nbsp;","&nbs;","&nbreak;"], 
+    c:1, 
+    e:"El texto menciona en la tabla de caracteres especiales que &nbsp; representa un 'espacio (técnicamente un non-breaking space)' y se usa cuando se necesitan múltiples espacios.", 
+    ref:"p. 6", d:2 },
+
+  { s:"A", q:"¿Cuál es la estructura correcta de un hipervínculo en HTML?", 
+    o:["<link href=\"url\">texto</link>","<a href=\"url\">texto</a>","<href url=\"texto\">","<anchor src=\"url\">texto</anchor>"], 
+    c:1, 
+    e:"El texto indica que 'los hipervínculos (también llamados anclas) típicamente tienen la siguiente estructura: <a href=\"Pages/AboutNematrian.pdf\">texto</a>'. El texto es lo que ve el usuario y el valor de href es a dónde apunta el enlace.", 
+    ref:"pp. 6–7", d:1 },
+
+  { s:"A", q:"¿Qué atributo del elemento <a> especifica dónde abrir el documento vinculado?", 
+    o:["target","destination","window","open"], 
+    c:0, 
+    e:"El texto indica que 'el atributo target indica dónde abrir el documento vinculado'. Los valores posibles incluyen _blank (nueva ventana), _self (misma ventana), _parent y _top.", 
+    ref:"p. 42", d:2 },
+
+  { s:"A", q:"¿Qué elemento HTML se utiliza para agrupar hipervínculos de navegación?", 
+    o:["<navigation>","<nav>","<menu>","<links>"], 
+    c:1, 
+    e:"El texto menciona que 'los grupos de hipervínculos pueden incluirse en un elemento <nav>'. Es nuevo en HTML 5 y se usa para enlaces de navegación.", 
+    ref:"p. 7", d:2 },
+
+  { s:"A", q:"¿Cuál de los siguientes elementos HTML NO está soportado en HTML 5 según el texto?", 
+    o:["<article>","<center>","<section>","<header>"], 
+    c:1, 
+    e:"El texto lista <center> como 'no soportado en HTML 5 (en su lugar usar CSS)'. Mientras que <article>, <section> y <header> son elementos nuevos en HTML 5.", 
+    ref:"p. 9", d:2 },
+
+  /* ============================================================
+     SECCIÓN B — Elementos de contenido y texto (10)
+     ============================================================ */
+  { s:"B", q:"Según el texto, ¿qué atributo se utiliza para especificar el idioma del contenido de un elemento HTML?", 
+    o:["language","lang","idiom","locale"], 
+    c:1, 
+    e:"El texto indica que 'a menudo, el elemento <html> también incluye un atributo lang, ya que esto puede ser importante para aplicaciones de accesibilidad (como lectores de pantalla) y para motores de búsqueda'.", 
+    ref:"p. 4", d:2 },
+
+  { s:"B", q:"¿Qué elemento HTML se utiliza para definir una lista desordenada?", 
+    o:["<ol>","<dl>","<ul>","<list>"], 
+    c:2, 
+    e:"El texto especifica que 'el elemento HTML <ul> indica una lista desordenada. Dentro del elemento <ul> debe haber uno o más elementos <li> identificando cada entrada en la lista'.", 
+    ref:"p. 98", d:1 },
+
+  { s:"B", q:"¿Qué elemento HTML se utiliza para definir una lista ordenada?", 
+    o:["<ul>","<ol>","<dl>","<list>"], 
+    c:1, 
+    e:"El texto indica que 'el elemento HTML <ol> indica una lista ordenada. La lista puede ser numérica o alfabética. Los elementos individuales dentro de la lista se identifican usando elementos <li>'.", 
+    ref:"p. 78", d:1 },
+
+  { s:"B", q:"¿Qué elemento HTML se utiliza para definir una lista de descripción?", 
+    o:["<ul>","<ol>","<dl>","<list>"], 
+    c:2, 
+    e:"El texto indica que 'el elemento HTML <dl> indica una lista de descripción. Se usa en conjunción con elementos <dd> y <dt>'. Un <dt> identifica un término y el <dd> asociado proporciona la descripción.", 
+    ref:"p. 57", d:2 },
+
+  { s:"B", q:"¿Qué elemento HTML se utiliza para definir un encabezado de nivel 1?", 
+    o:["<h1>","<head1>","<header1>","<heading1>"], 
+    c:0, 
+    e:"El texto indica que 'el elemento HTML <h1> indica un encabezado HTML de nivel 1'. Los elementos <h1> a <h6> proporcionan una jerarquía de encabezados.", 
+    ref:"p. 62", d:1 },
+
+  { s:"B", q:"¿Qué elemento HTML se utiliza para definir un párrafo?", 
+    o:["<par>","<p>","<paragraph>","<text>"], 
+    c:1, 
+    e:"El texto indica que 'el elemento HTML <p> indica un párrafo'. Los elementos <p> se utilizan típicamente para delimitar párrafos en HTML.", 
+    ref:"p. 80", d:1 },
+
+  { s:"B", q:"¿Qué elemento HTML se utiliza para definir el título de un documento?", 
+    o:["<header>","<title>","<h1>","<heading>"], 
+    c:1, 
+    e:"El texto indica que 'el elemento HTML <title> indica el título para el documento. Aparece en la parte <head> del documento. Típicamente identifica el título de la página que aparece en una barra de herramientas del navegador'.", 
+    ref:"p. 96", d:1 },
+
+  { s:"B", q:"¿Qué elemento HTML se utiliza para definir un artículo (contenido autocontenido)?", 
+    o:["<article>","<section>","<post>","<content>"], 
+    c:0, 
+    e:"El texto indica que 'el elemento HTML <article> indica una pieza de contenido autocontenido, como una publicación de blog o foro, una historia de noticias específica o algún comentario autocontenido sobre una pieza específica de texto. Es nuevo en HTML 5'.", 
+    ref:"p. 44", d:2 },
+
+  { s:"B", q:"¿Qué elemento HTML se utiliza para definir un pie de página?", 
+    o:["<bottom>","<footer>","<end>","<foot>"], 
+    c:1, 
+    e:"El texto indica que 'el elemento HTML <footer> indica un pie de página para un documento o sección. Es nuevo en HTML 5. Típicamente, un elemento <footer> podría contener información de autoría o derechos de autor'.", 
+    ref:"p. 60", d:2 },
+
+  { s:"B", q:"¿Qué elemento HTML se utiliza para definir un encabezado de documento o sección (no confundir con <head>)?", 
+    o:["<head>","<header>","<heading>","<h1>"], 
+    c:1, 
+    e:"El texto indica que 'el elemento HTML <header> indica un encabezado para un documento o sección. Es nuevo en HTML 5. Típicamente, un elemento <header> podría contener contenido introductorio, enlaces de navegación, uno o más elementos de encabezado'. Se diferencia de <head> que es para metadatos.", 
+    ref:"p. 64", d:2 },
+
+  /* ============================================================
+     SECCIÓN C — Tablas, formularios y controles (10)
+     ============================================================ */
+  { s:"C", q:"¿Qué elemento HTML se utiliza para definir una tabla?", 
+    o:["<grid>","<table>","<tabular>","<data>"], 
+    c:1, 
+    e:"El texto indica que 'el elemento HTML <table> indica una tabla. Típicamente incluye uno o más elementos <tr> y, dentro de ellos, elementos <td> y/o <th>'.", 
+    ref:"p. 92", d:1 },
+
+  { s:"C", q:"¿Qué elemento HTML se utiliza para definir una fila de tabla?", 
+    o:["<row>","<tr>","<td>","<th>"], 
+    c:1, 
+    e:"El texto indica que 'el elemento HTML <tr> indica una fila de tabla (dentro de una tabla). Aparece dentro de un elemento <table> y contiene elementos <td> y <th> representando celdas individuales'.", 
+    ref:"p. 96", d:1 },
+
+  { s:"C", q:"¿Qué elemento HTML se utiliza para definir una celda de encabezado de tabla?", 
+    o:["<td>","<th>","<header>","<cell>"], 
+    c:1, 
+    e:"El texto indica que 'el elemento HTML <th> indica una celda de encabezado de tabla (dentro de una fila de tabla)'. Las tablas HTML contienen dos tipos de celdas: encabezados (<th>) y celdas estándar (<td>).", 
+    ref:"p. 95", d:1 },
+
+  { s:"C", q:"¿Qué elemento HTML se utiliza para definir una celda estándar de tabla?", 
+    o:["<td>","<th>","<cell>","<data>"], 
+    c:0, 
+    e:"El texto indica que 'el elemento HTML <td> indica una celda de tabla (dentro de una fila de tabla). Aparecen dentro de elementos <tr>'. Se diferencian de <th> porque las celdas de encabezado se formatean de manera distinta por defecto.", 
+    ref:"p. 93", d:1 },
+
+  { s:"C", q:"¿Qué elemento HTML se utiliza para crear un formulario?", 
+    o:["<input>","<form>","<fieldset>","<button>"], 
+    c:1, 
+    e:"El texto indica que 'el elemento HTML <form> indica un formulario HTML para entrada del usuario. Típicamente, un elemento <form> contendrá uno o más de los siguientes elementos: <button>, <fieldset>, <input>, <label>, <optgroup>, <option>, <select>, <textarea>'.", 
+    ref:"p. 60", d:1 },
+
+  { s:"C", q:"¿Qué elemento HTML se utiliza para crear un control de entrada de una sola línea?", 
+    o:["<textarea>","<input>","<text>","<field>"], 
+    c:1, 
+    e:"El texto indica que 'el elemento HTML <input> indica un control de entrada (de una sola línea) en el que el usuario puede introducir datos. Se usa dentro de un elemento <form>'.", 
+    ref:"p. 67", d:1 },
+
+  { s:"C", q:"¿Qué atributo del elemento <input> especifica el tipo de control de entrada?", 
+    o:["kind","type","mode","format"], 
+    c:1, 
+    e:"El texto indica que 'hay muchos tipos diferentes de elementos <input> que varían dependiendo del atributo type del elemento, incluyendo: button, checkbox, color, date, datetime, email, file, hidden, image, month, number, password, radio, range, reset, search, submit, tel, text, time, url, week'.", 
+    ref:"p. 67", d:2 },
+
+  { s:"C", q:"¿Qué elemento HTML se utiliza para crear un control de entrada multilínea?", 
+    o:["<input>","<textarea>","<textbox>","<multiline>"], 
+    c:1, 
+    e:"El texto indica que 'el elemento HTML <textarea> indica un control de entrada multilínea. Puede contener un número ilimitado de caracteres, y el texto utilizado se representa típicamente en una fuente de ancho fijo'.", 
+    ref:"p. 93", d:2 },
+
+  { s:"C", q:"¿Qué elemento HTML se utiliza para definir una lista desplegable?", 
+    o:["<dropdown>","<select>","<list>","<menu>"], 
+    c:1, 
+    e:"El texto indica que 'el elemento HTML <select> indica una lista desplegable. Los elementos option dentro del elemento <select> identifican las opciones disponibles dentro de la lista desplegable'.", 
+    ref:"p. 85", d:1 },
+
+  { s:"C", q:"¿Qué elemento HTML se utiliza para definir una opción dentro de una lista desplegable?", 
+    o:["<item>","<option>","<choice>","<selectitem>"], 
+    c:1, 
+    e:"El texto indica que 'el elemento HTML <option> indica una opción en una lista desplegable'. Se usa dentro de elementos <select>, <optgroup> o <datalist>.", 
+    ref:"p. 79", d:1 },
+
+  /* ============================================================
+     SECCIÓN D — Multimedia, HTML5, XHTML y recursos (8)
+     ============================================================ */
+  { s:"D", q:"¿Qué elemento HTML se utiliza para incrustar un video?", 
+    o:["<media>","<movie>","<video>","<embed>"], 
+    c:2, 
+    e:"El texto describe el elemento <video> como 'indica un video o película. Es nuevo en HTML 5'. Menciona formatos soportados como MP4, WebM y Ogg.", 
+    ref:"p. 99", d:1 },
+
+  { s:"D", q:"¿Qué elemento HTML se utiliza para incrustar audio?", 
+    o:["<sound>","<audio>","<music>","<embed>"], 
+    c:1, 
+    e:"El texto indica que 'el elemento HTML <audio> se utiliza para definir y reproducir sonido, como música u otras transmisiones de audio. Es nuevo en HTML 5'.", 
+    ref:"p. 45", d:1 },
+
+  { s:"D", q:"¿Qué elemento HTML se utiliza para insertar una imagen?", 
+    o:["<image>","<img>","<picture>","<photo>"], 
+    c:1, 
+    e:"El texto indica que 'el elemento HTML <img> indica una imagen. Técnicamente tiene dos atributos requeridos, a saber, src (la fuente de la imagen) y alt (el texto alternativo)'.", 
+    ref:"p. 66", d:1 },
+
+  { s:"D", q:"¿Qué atributo del elemento <img> especifica el texto alternativo?", 
+    o:["title","alt","text","description"], 
+    c:1, 
+    e:"El texto indica que 'el atributo alt indica el texto alternativo a mostrar cuando el contenido original (ej. una imagen) no se muestra'. Se aplica a elementos <area>, <img> e <input>.", 
+    ref:"p. 113", d:2 },
+
+  { s:"D", q:"¿Qué elemento HTML se utiliza para crear un hipervínculo a una hoja de estilos externa?", 
+    o:["<style>","<link>","<css>","<stylesheet>"], 
+    c:1, 
+    e:"El texto indica que 'las hojas de estilo externas se referencian usando un elemento <link>, que va dentro de la sección <head>. Este tipo de elemento link tiene una forma como: <link rel=\"stylesheet\" type=\"text/css\" href=\"mystyle.css\">'.", 
+    ref:"p. 12", d:2 },
+
+  { s:"D", q:"¿Qué elemento HTML se utiliza para incrustar código JavaScript?", 
+    o:["<js>","<script>","<javascript>","<code>"], 
+    c:1, 
+    e:"El texto indica que 'el elemento HTML <script> indica script/programación del lado del cliente. Usualmente esto se escribe en JavaScript. El elemento <script> o bien contiene este código o apunta a un archivo externo mediante su atributo src'.", 
+    ref:"p. 84", d:2 },
+
+  { s:"D", q:"Según el texto, ¿qué es XHTML?", 
+    o:["Una versión antigua de HTML","Una variante moderna de HTML que combina HTML clásico y XML","Un lenguaje de programación del lado del servidor","Un framework de CSS"], 
+    c:1, 
+    e:"El texto define XHTML como 'una variante moderna de HTML que implica un cruce entre HTML clásico y XML.' Requiere que todos los elementos estén correctamente cerrados y anidados.", 
+    ref:"p. 40", d:2 },
+
+  { s:"D", q:"¿Cuál es una diferencia clave entre HTML y XHTML según el texto?", 
+    o:["XHTML no permite atributos","XHTML requiere que todos los elementos estén correctamente cerrados","XHTML no soporta CSS","XHTML solo funciona en Internet Explorer"], 
+    c:1, 
+    e:"El texto indica que 'todos los elementos XHTML deben estar correctamente cerrados (y correctamente anidados), ej. usando </p> para cerrar un elemento párrafo (<p>) y no solo comenzando uno nuevo con un nuevo <p>'. Además, elementos vacíos como <br> deben cerrarse como <br />.", 
+    ref:"p. 41", d:3 }
 ]};
